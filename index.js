@@ -8,6 +8,7 @@ const USER_EMAIL = process.env.USER_EMAIL || ''
 const PASSWORD = process.env.PASSWORD || ''
 const EMAIL_FROM = process.env.EMAIL_FROM || ''
 const EMAIL_TO = process.env.EMAIL_TO || ''
+const CC = process.env.CC || ''
 
 const client = new SMTPClient({
     host: HOST,
@@ -27,6 +28,7 @@ app.post('/contact', (req, res) => {
         {
             from: EMAIL_FROM,
             to: EMAIL_TO,
+            cc: CC,
             subject,
             text: emailMessage
         },
